@@ -1,4 +1,6 @@
 import pandas as pd
+import matplotlib.pyplot as plt
+
 
 def climateChangefn():
     glbtemp = pd.read_csv("/Users/annmerinpeter/Downloads/GlobalTemperatures.csv",index_col=0)
@@ -16,3 +18,12 @@ def climateChangefn():
 
     glblandtemcountry = pd.read_csv("/Users/annmerinpeter/Downloads/GlobalLandTemperaturesByCountry.csv",index_col=0)
     print(glblandtemcountry.columns)
+
+    state = glblandtempstate["State"]
+    temp = glblandtempstate["AverageTemperature"]
+
+    plt.bar(state, temp)
+    plt.title('title name')
+    plt.xlabel('xAxis name')
+    plt.ylabel('yAxis name')
+    plt.show()
