@@ -19,11 +19,14 @@ def climateChangefn():
     glblandtemcountry = pd.read_csv("/Users/annmerinpeter/Downloads/GlobalLandTemperaturesByCountry.csv",index_col=0)
     print(glblandtemcountry.columns)
 
-    state = glblandtempstate["State"]
-    temp = glblandtempstate["AverageTemperature"]
+    state_cnt = sum(1 for row in glblandtempstate)
+    print(state_cnt)
+
+    state = glblandtempstate["State"].head(100)
+    temp = glblandtempstate["AverageTemperature"].head(100)
 
     plt.bar(state, temp)
     plt.title('title name')
-    plt.xlabel('xAxis name')
-    plt.ylabel('yAxis name')
+    plt.xlabel('State')
+    plt.ylabel('Temparature')
     plt.show()
